@@ -9,7 +9,7 @@ st.set_page_config(
  )
  
 def home_page():
-     season = st.st.selectbox('Select EPL Season:',['2022','2021','2020'])
+     season = st.st.selectbox('Select EPL Season:',('2022','2021','2020'))
      five38 = sd.FiveThirtyEight('ENG-Premier League', season)
      games = five38.read_games() 
      st.dataframe(games)

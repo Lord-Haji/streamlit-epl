@@ -1,5 +1,6 @@
 import streamlit as st
 import soccerdata as sd
+import streamlit_authenticator as stauth
 
 st.set_page_config(
      page_title="streamlit-soccer",

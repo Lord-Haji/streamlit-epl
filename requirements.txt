@@ -1,4 +1,4 @@
 streamlit
 soccerdata
 streamlit-authenticator
-pivottablejs 
+streamlit-pandas-profiling

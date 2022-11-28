@@ -10,14 +10,20 @@ st.set_page_config(
      layout="wide",
      initial_sidebar_state="expanded"
  )
- 
+
+# def generateReport(ls, s):
+#      five38 = sd.FiveThirtyEight(ls, s)
+#      games = five38.read_games()
+#      games_pr = games.profile_report()
+#      st_profile_report(games_pr)
+
 def epl():
      league = st.selectbox('Select League:',('EPL','La Liga', 'Ligue 1', 'Bundesliga', 'Serie A'))
      # if league == 'World Cup':
      #      season = st.selectbox('Select Edition:',('2022','2018','2014'))
      # else:
 
-     season = st.selectbox('Select Season:',('2022','2021','2020'))
+     season = st.selectbox('Select Season:',('2022','2021','2020', '2019', '2018'))
 
      # if league == 'World Cup':
      #      leaguestring = 'INT-World Cup'
@@ -37,10 +43,20 @@ def epl():
      elif league == 'Serie A':
           leaguestring = 'ITA-Serie A'
 
-     five38 = sd.FiveThirtyEight(leaguestring, season)
-     games = five38.read_games()
-     games_pr = games.profile_report()
-     st_profile_report(games_pr)
+     if st.button("Generate Report"):
+          st.write(f"Displaying {league} {season} Report")
+          five38 = sd.FiveThirtyEight(leaguestring, season)
+          games = five38.read_games()
+          games_pr = games.profile_report()
+          st_profile_report(games_pr)
+
+
+     # five38 = sd.FiveThirtyEight(leaguestring, season)
+     # games = five38.read_games()
+     # games_pr = games.profile_report()
+     # st_profile_report(games_pr)
+
+
  
 page_names_to_funcs = {
      "Soccer Analysis": epl   
